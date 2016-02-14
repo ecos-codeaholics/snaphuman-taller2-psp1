@@ -4,7 +4,7 @@ package edu.uniandes.ecos.psp1.app;
  * Hello world!
  *
  */
-public class App 
+public class ContadorLOC
 {
     public static void main( String[] args )
     {
