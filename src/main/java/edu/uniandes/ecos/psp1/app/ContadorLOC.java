@@ -1,5 +1,9 @@
 package edu.uniandes.ecos.psp1.app;
 
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.Scanner;
+
 /**
  * Contador de Lineas de Código: programa que cuenta
  * las lineas físicas de código (LOC)a partir de la deducción
@@ -11,11 +15,6 @@ package edu.uniandes.ecos.psp1.app;
  * @license GNU/GPL v3
  * @type Part
  */
-
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.Scanner;
-
 public class ContadorLOC
 {
     /**
