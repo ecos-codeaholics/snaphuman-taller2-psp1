@@ -17,6 +17,7 @@ import java.util.Scanner;
  */
 public class ContadorLOC
 {
+
     /**
      *
      * @type Item
@@ -83,7 +84,9 @@ public class ContadorLOC
 
         File[] archivos = directorio.listFiles( filtro );
 
-        for ( File archivo : archivos ) Archivo.abrir(archivo);
+        for ( File archivo : archivos ) {
+            Archivo.abrir(archivo);
+        }
 
         return archivos;
     }

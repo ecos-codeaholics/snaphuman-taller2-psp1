@@ -16,28 +16,13 @@ public class Linea {
     /**
      *
      * @type Item
-     * @param valor
+     * @param linea
      */
-    public static void procesar (String valor) {
+    public static void procesar (String linea) {
 
-        boolean esComentario = Pattern.matches(regexComentario, valor);
+        boolean esComentario = Pattern.matches(regexComentario, linea);
 
-        if (esComentario) comentario(valor);
+        if (esComentario) Comentario.construirBloque(linea);
     }
-
-    /**
-     *
-     * @type Item
-     *
-     */
-    public static Bloque comentario (String valor) {
-
-        Bloque comentario = new Bloque();
-
-        comentario.tipo(valor);
-
-        return comentario;
-    }
-
 }
 
