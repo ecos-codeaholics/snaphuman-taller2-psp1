@@ -20,9 +20,9 @@ public class Comentario {
      * @type item
      * @param linea
      */
-    public static Integer contarLineas (String linea) {
+    public static Integer contarLineas ( String linea ) {
 
-        Archivo.lineasBloqueComentario.add(linea);
+        Archivo.lineasBloqueComentario.add( linea );
 
         numLineas = Archivo
                 .lineasBloqueComentario.size();
@@ -30,13 +30,14 @@ public class Comentario {
         return numLineas;
     }
 
-    public static Integer contarBloques (String linea) {
+    public static Integer contarBloques ( String linea ) {
         String regex = "^(.*)/\\*{1,2}";
 
-        boolean esInicio = Pattern.matches(regex, linea);
+        boolean esInicio = Pattern.matches( regex, linea );
 
-        if (esInicio) {
-            Archivo.bloquesComentario.add(linea);
+        if ( esInicio ) {
+
+            Archivo.bloquesComentario.add( linea );
         }
 
         numBloques = Archivo.bloquesComentario.size();
@@ -44,11 +45,11 @@ public class Comentario {
         return numBloques;
     }
 
-    public static String obtenerTipo (String linea) {
+    public static String obtenerTipo ( String linea ) {
 
         String regex = "(\\p{Space}\\*\\p{Space}@\\btype\\b)(.*)$";
         String reemplazo = "(\\p{Space}\\*\\p{Space}@\\btype\\b)";
-        boolean tieneTipo = Pattern.matches(regex, linea);
+        boolean tieneTipo = Pattern.matches( regex, linea );
 
         if ( tieneTipo ) {
 
