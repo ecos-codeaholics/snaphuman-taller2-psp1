@@ -85,8 +85,16 @@ public class ContadorLOC
         File[] archivos = directorio.listFiles( filtro );
 
         for ( File archivo : archivos ) {
+            Archivo.lineas.clear();
+            Archivo.blancos.clear();
             Archivo.abrir(archivo);
+            Archivo.reiniciarConteoComentario();
+            Archivo.obtenerNumBloquesComentario();
+            Archivo.obtenerNumLineasComentario();
+            Archivo.obtenerNumLineasArchivo();
+            Archivo.obtenerNumLineasBlanco();
         }
+
 
         return archivos;
     }

@@ -11,18 +11,27 @@ import java.util.regex.Pattern;
  */
 public class Linea {
 
-    static String regexComentario = "(^.*)\\*{1,2}|(^.*)\\*(.*)$|(^.*)//(.*)$";
+    static String regexComentario = "(^.*)/\\*{1,2}|(^.*)\\*(.*)$|(^.*)//(.*)$";
 
     /**
      *
      * @type Item
      * @param linea
      */
-    public static void procesar (String linea) {
+    public static void procesar ( String linea ) {
 
-        boolean esComentario = Pattern.matches(regexComentario, linea);
+        boolean esComentario = Pattern.matches( regexComentario, linea );
+        boolean esBlanco = linea.trim().isEmpty();
 
-        if (esComentario) Comentario.construirBloque(linea);
+        if ( esComentario ) {
+            Comentario.contarLineas( linea );
+            Comentario.contarBloques( linea );
+            Comentario.obtenerTipo( linea );
+        } else if ( esBlanco ) {
+            Archivo.blancos.add( linea );
+        } else {
+            Archivo.lineas.add( linea );
+        }
     }
 }
 

@@ -15,6 +15,11 @@ public class Archivo {
 
     static String nombre;
 
+    public static List<String> lineas = new ArrayList<String>();
+    public static List<String> blancos = new ArrayList<String>();
+    public static List<String> lineasBloqueComentario = new ArrayList<String>();
+    public static List<String> bloquesComentario = new ArrayList<String>();
+
     /**
      *
      * @type Item
@@ -24,13 +29,11 @@ public class Archivo {
 
         nombre = archivo.getAbsolutePath();
         String linea;
-        List<String> lineas = new ArrayList<String>();
 
         try {
             BufferedReader lector = new BufferedReader (new FileReader(nombre));
 
             while ( ( linea = lector.readLine() ) != null ) {
-                lineas.add(linea);
                 Linea.procesar(linea);
             }
         } catch ( FileNotFoundException e ) {
@@ -38,6 +41,44 @@ public class Archivo {
         } catch ( IOException e ) {
             e.printStackTrace();
         }
+    }
 
+    public static void obtenerNumLineasArchivo() {
+
+        Integer numLineasA = lineas.size();
+
+        System.out.println( "Num Lineas Archivo" );
+        System.out.println( numLineasA );
+    }
+
+    public static void obtenerNumLineasBlanco() {
+
+        Integer numLineasB = blancos.size();
+
+        System.out.println( "Num Lineas Blanco" );
+        System.out.println( numLineasB );
+
+    }
+
+    public static void obtenerNumLineasComentario() {
+
+        Integer numLineas = Comentario.numLineas;
+
+        System.out.println( "Num Lineas Comentario" );
+        System.out.println( numLineas );
+    }
+
+    public static void obtenerNumBloquesComentario() {
+
+        Integer numBloques = Comentario.numBloques;
+
+        System.out.println( "Bloques" );
+        System.out.println( numBloques );
+    }
+
+    public static void reiniciarConteoComentario () {
+
+        lineasBloqueComentario.clear();
+        bloquesComentario.clear();
     }
 }

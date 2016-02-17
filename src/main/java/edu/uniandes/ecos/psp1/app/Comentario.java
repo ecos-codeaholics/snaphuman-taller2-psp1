@@ -1,7 +1,6 @@
 package edu.uniandes.ecos.psp1.app;
 
-import java.util.List;
-import java.util.Map;
+import java.util.regex.Pattern;
 
 /**
  *
@@ -12,18 +11,48 @@ import java.util.Map;
  */
 public class Comentario {
 
-    public static Integer id;
-
-    public static Map<Integer, List> bloque;
+    static Integer numLineas;
+    static Integer numBloques;
+    static String tipo;
 
     /**
      *
      * @type item
      * @param linea
      */
-    public static void construirBloque (String linea) {
+    public static Integer contarLineas (String linea) {
 
-        System.out.println(linea);
+        Archivo.lineasBloqueComentario.add(linea);
+
+        numLineas = Archivo
+                .lineasBloqueComentario.size();
+
+        return numLineas;
     }
 
+    public static Integer contarBloques (String linea) {
+        String regex = "^(.*)/\\*{1,2}";
+
+        boolean esInicio = Pattern.matches(regex, linea);
+
+        if (esInicio) {
+            Archivo.bloquesComentario.add(linea);
+        }
+
+        numBloques = Archivo.bloquesComentario.size();
+
+        return numBloques;
+    }
+
+    public static String obtenerTipo (String linea) {
+        String regex = "(\\p{Space})(\\*\\p{Space})(\\btype\\b)";
+        boolean tieneTipo = Pattern.matches(regex, linea);
+        if ( tieneTipo ) {
+
+            tipo = "Tiene tipo";
+            System.out.println(tipo);
+        }
+
+        return tipo;
+    }
 }
