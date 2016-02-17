@@ -45,12 +45,14 @@ public class Comentario {
     }
 
     public static String obtenerTipo (String linea) {
-        String regex = "(\\p{Space})(\\*\\p{Space})(\\btype\\b)";
+
+        String regex = "(\\p{Space}\\*\\p{Space}@\\btype\\b)(.*)$";
+        String reemplazo = "(\\p{Space}\\*\\p{Space}@\\btype\\b)";
         boolean tieneTipo = Pattern.matches(regex, linea);
+
         if ( tieneTipo ) {
 
-            tipo = "Tiene tipo";
-            System.out.println(tipo);
+            tipo = linea.replaceAll(reemplazo, "").trim();
         }
 
         return tipo;
