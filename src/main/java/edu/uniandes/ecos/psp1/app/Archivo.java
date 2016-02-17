@@ -18,6 +18,7 @@ public class Archivo {
     public static List<String> blancos = new ArrayList<String>();
     public static List<String> lineasBloqueComentario = new ArrayList<String>();
     public static List<String> bloquesComentario = new ArrayList<String>();
+    public static List<String> bloquesItem = new ArrayList<String>();
 
     /**
      *
@@ -93,6 +94,14 @@ public class Archivo {
         System.out.println( numBloques );
     }
 
+    public static void obtenerNumBloquesItem() {
+
+        Integer numItems = Comentario.numBloquesItem;
+
+        System.out.println( "Items" );
+        System.out.println( numItems );
+    }
+
     /**
      *
      * @type Item
@@ -101,5 +110,6 @@ public class Archivo {
 
         lineasBloqueComentario.clear();
         bloquesComentario.clear();
+        bloquesItem.clear();
     }
 }

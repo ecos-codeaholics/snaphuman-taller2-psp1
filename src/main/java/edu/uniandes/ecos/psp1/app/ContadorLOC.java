@@ -93,6 +93,7 @@ public class ContadorLOC {
             Archivo.obtenerNumLineasComentario();
             Archivo.obtenerNumLineasArchivo();
             Archivo.obtenerNumLineasBlanco();
+            Archivo.obtenerNumBloquesItem();
         }
 
         return archivos;
