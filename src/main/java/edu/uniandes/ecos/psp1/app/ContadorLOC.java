@@ -88,12 +88,12 @@ public class ContadorLOC {
             Archivo.lineas.clear();
             Archivo.blancos.clear();
             Archivo.abrir(archivo);
-            Archivo.reiniciarConteoComentario();
             Archivo.obtenerNumBloquesComentario();
             Archivo.obtenerNumLineasComentario();
             Archivo.obtenerNumLineasArchivo();
             Archivo.obtenerNumLineasBlanco();
             Archivo.obtenerNumBloquesItem();
+            Archivo.obtenerNumBloquesPart();
         }
 
         return archivos;

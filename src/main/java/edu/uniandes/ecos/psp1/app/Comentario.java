@@ -14,6 +14,7 @@ public class Comentario {
     static Integer numLineas;
     static Integer numBloques;
     static Integer numBloquesItem;
+    static Integer numBloquesPart;
     static String tipo;
 
     /**
@@ -67,10 +68,17 @@ public class Comentario {
         if ( tieneTipo ) {
 
             tipo = linea.replaceAll(reemplazo, "").trim();
-            Archivo.bloquesItem.add( tipo );
-        }
 
-        numBloquesItem = Archivo.bloquesItem.size();
+            if (tipo.contains("Item")) {
+
+                Archivo.bloquesItem.add( tipo );
+                numBloquesItem = Archivo.bloquesItem.size();
+            } else if (tipo.contains("Part")) {
+
+                Archivo.bloquesPart.add( tipo );
+                numBloquesPart = Archivo.bloquesPart.size();
+            }
+        }
 
         return tipo;
     }

@@ -19,6 +19,7 @@ public class Archivo {
     public static List<String> lineasBloqueComentario = new ArrayList<String>();
     public static List<String> bloquesComentario = new ArrayList<String>();
     public static List<String> bloquesItem = new ArrayList<String>();
+    public static List<String> bloquesPart = new ArrayList<String>();
 
     /**
      *
@@ -27,6 +28,7 @@ public class Archivo {
      */
     public static void abrir( File archivo ) {
 
+        reiniciarConteoComentario();
         nombre = archivo.getAbsolutePath();
         String linea;
 
@@ -102,6 +104,14 @@ public class Archivo {
         System.out.println( numItems );
     }
 
+    public static void obtenerNumBloquesPart() {
+
+        Integer numParts = Comentario.numBloquesPart;
+
+        System.out.println( "Parts" );
+        System.out.println( numParts );
+    }
+
     /**
      *
      * @type Item
@@ -110,6 +120,7 @@ public class Archivo {
 
         lineasBloqueComentario.clear();
         bloquesComentario.clear();
+        bloquesPart.clear();
         bloquesItem.clear();
     }
 }
