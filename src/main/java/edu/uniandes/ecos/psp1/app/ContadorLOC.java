@@ -15,16 +15,15 @@ import java.util.Scanner;
  * @license GNU/GPL v3
  * @type Part
  */
-public class ContadorLOC
-{
+public class ContadorLOC {
 
     /**
      *
      * @type Item
      * @param args
      */
-    public static void main( String[] args )
-    {
+    public static void main( String[] args ) {
+
         String msg;
         String ruta;
         Scanner entrada;
@@ -85,6 +84,7 @@ public class ContadorLOC
         File[] archivos = directorio.listFiles( filtro );
 
         for ( File archivo : archivos ) {
+
             Archivo.lineas.clear();
             Archivo.blancos.clear();
             Archivo.abrir(archivo);
@@ -95,8 +95,6 @@ public class ContadorLOC
             Archivo.obtenerNumLineasBlanco();
         }
 
-
         return archivos;
     }
-
 }
