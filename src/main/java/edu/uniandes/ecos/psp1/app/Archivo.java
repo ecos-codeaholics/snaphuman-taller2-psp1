@@ -14,7 +14,6 @@ import java.util.List;
 public class Archivo {
 
     static String nombre;
-
     public static List<String> lineas = new ArrayList<String>();
     public static List<String> blancos = new ArrayList<String>();
     public static List<String> lineasBloqueComentario = new ArrayList<String>();
@@ -31,18 +30,25 @@ public class Archivo {
         String linea;
 
         try {
-            BufferedReader lector = new BufferedReader (new FileReader(nombre));
 
+            BufferedReader lector = new BufferedReader (new FileReader(nombre));
             while ( ( linea = lector.readLine() ) != null ) {
+
                 Linea.procesar(linea);
             }
         } catch ( FileNotFoundException e ) {
+
             e.printStackTrace();
         } catch ( IOException e ) {
+
             e.printStackTrace();
         }
     }
 
+    /**
+     *
+     * @type Item
+     */
     public static void obtenerNumLineasArchivo() {
 
         Integer numLineasA = lineas.size();
@@ -51,15 +57,22 @@ public class Archivo {
         System.out.println( numLineasA );
     }
 
+    /**
+     *
+     * @type Item
+     */
     public static void obtenerNumLineasBlanco() {
 
         Integer numLineasB = blancos.size();
 
         System.out.println( "Num Lineas Blanco" );
         System.out.println( numLineasB );
-
     }
 
+    /**
+     *
+     * @type Item
+     */
     public static void obtenerNumLineasComentario() {
 
         Integer numLineas = Comentario.numLineas;
@@ -68,6 +81,10 @@ public class Archivo {
         System.out.println( numLineas );
     }
 
+    /**
+     *
+     * @type Item
+     */
     public static void obtenerNumBloquesComentario() {
 
         Integer numBloques = Comentario.numBloques;
@@ -76,6 +93,10 @@ public class Archivo {
         System.out.println( numBloques );
     }
 
+    /**
+     *
+     * @type Item
+     */
     public static void reiniciarConteoComentario () {
 
         lineasBloqueComentario.clear();
