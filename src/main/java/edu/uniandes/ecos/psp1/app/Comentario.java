@@ -17,7 +17,7 @@ public class Comentario {
 
     /**
      *
-     * @type item
+     * @type Item
      * @param linea
      */
     public static Integer contarLineas ( String linea ) {
@@ -30,6 +30,12 @@ public class Comentario {
         return numLineas;
     }
 
+    /**
+     *
+     * @type Item
+     * @param linea
+     * @return
+     */
     public static Integer contarBloques ( String linea ) {
         String regex = "^(.*)/\\*{1,2}";
 
@@ -45,6 +51,12 @@ public class Comentario {
         return numBloques;
     }
 
+    /**
+     *
+     * @type Item
+     * @param linea
+     * @return
+     */
     public static String obtenerTipo ( String linea ) {
 
         String regex = "(\\p{Space}\\*\\p{Space}@\\btype\\b)(.*)$";
