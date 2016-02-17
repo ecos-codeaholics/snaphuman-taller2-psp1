@@ -24,14 +24,16 @@ public class Linea {
         boolean esBlanco = linea.trim().isEmpty();
 
         if ( esComentario ) {
+
             Comentario.contarLineas( linea );
             Comentario.contarBloques( linea );
             Comentario.obtenerTipo( linea );
         } else if ( esBlanco ) {
+
             Archivo.blancos.add( linea );
         } else {
+
             Archivo.lineas.add( linea );
         }
     }
 }
-
