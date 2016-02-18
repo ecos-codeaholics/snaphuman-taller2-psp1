@@ -60,7 +60,7 @@ public class Comentario {
      */
     public static String obtenerTipo ( String linea ) {
 
-        String regex = "(\\p{Space}\\*\\p{Space}@\\btype\\b)(.*)$";
+        String regex = "(^.*)(\\*\\p{Space}@\\btype\\b)(.*)$";
         String reemplazo = "(\\p{Space}\\*\\p{Space}@\\btype\\b)(\\p{Space}\\bItem\\b)";
         boolean tieneTipo = Pattern.matches( regex, linea );
 
