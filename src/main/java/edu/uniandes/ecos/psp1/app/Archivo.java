@@ -14,12 +14,12 @@ import java.util.List;
 public class Archivo {
 
     static String nombre;
+    static String path;
     public static List<String> lineas = new ArrayList<String>();
     public static List<String> blancos = new ArrayList<String>();
     public static List<String> lineasBloqueComentario = new ArrayList<String>();
     public static List<String> bloquesComentario = new ArrayList<String>();
     public static List<String> bloquesItem = new ArrayList<String>();
-    public static List<String> bloquesPart = new ArrayList<String>();
 
     /**
      *
@@ -28,13 +28,13 @@ public class Archivo {
      */
     public static void abrir( File archivo ) {
 
-        reiniciarConteoComentario();
-        nombre = archivo.getAbsolutePath();
+        path = archivo.getAbsolutePath();
+        nombre = archivo.getName();
         String linea;
 
         try {
 
-            BufferedReader lector = new BufferedReader (new FileReader(nombre));
+            BufferedReader lector = new BufferedReader (new FileReader(path));
             while ( ( linea = lector.readLine() ) != null ) {
 
                 Linea.procesar(linea);
@@ -52,64 +52,55 @@ public class Archivo {
      *
      * @type Item
      */
-    public static void obtenerNumLineasArchivo() {
+    public static Integer obtenerNumLineasArchivo() {
 
         Integer numLineasA = lineas.size();
 
-        System.out.println( "Num Lineas Archivo" );
-        System.out.println( numLineasA );
+        return numLineasA;
     }
 
     /**
      *
      * @type Item
      */
-    public static void obtenerNumLineasBlanco() {
+    public static Integer obtenerNumLineasBlanco() {
 
         Integer numLineasB = blancos.size();
 
-        System.out.println( "Num Lineas Blanco" );
-        System.out.println( numLineasB );
+        return numLineasB;
     }
 
     /**
      *
      * @type Item
      */
-    public static void obtenerNumLineasComentario() {
+    public static Integer obtenerNumLineasComentario() {
 
         Integer numLineas = Comentario.numLineas;
 
-        System.out.println( "Num Lineas Comentario" );
-        System.out.println( numLineas );
+        return numLineas;
     }
 
     /**
      *
      * @type Item
      */
-    public static void obtenerNumBloquesComentario() {
+    public static Integer obtenerNumBloquesComentario() {
 
         Integer numBloques = Comentario.numBloques;
 
-        System.out.println( "Bloques" );
-        System.out.println( numBloques );
+        return numBloques;
     }
 
-    public static void obtenerNumBloquesItem() {
+    /**
+     *
+     * @type Item
+     */
+    public static Integer obtenerNumBloquesItem() {
 
         Integer numItems = Comentario.numBloquesItem;
 
-        System.out.println( "Items" );
-        System.out.println( numItems );
-    }
-
-    public static void obtenerNumBloquesPart() {
-
-        Integer numParts = Comentario.numBloquesPart;
-
-        System.out.println( "Parts" );
-        System.out.println( numParts );
+        return numItems;
     }
 
     /**
@@ -120,7 +111,5 @@ public class Archivo {
 
         lineasBloqueComentario.clear();
         bloquesComentario.clear();
-        bloquesPart.clear();
-        bloquesItem.clear();
     }
 }

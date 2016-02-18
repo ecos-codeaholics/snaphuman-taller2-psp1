@@ -83,18 +83,31 @@ public class ContadorLOC {
 
         File[] archivos = directorio.listFiles( filtro );
 
+        String msg = "\n";
+
         for ( File archivo : archivos ) {
+
 
             Archivo.lineas.clear();
             Archivo.blancos.clear();
             Archivo.abrir(archivo);
-            Archivo.obtenerNumBloquesComentario();
-            Archivo.obtenerNumLineasComentario();
-            Archivo.obtenerNumLineasArchivo();
-            Archivo.obtenerNumLineasBlanco();
-            Archivo.obtenerNumBloquesItem();
-            Archivo.obtenerNumBloquesPart();
+            Archivo.bloquesItem.clear();
+            Archivo.reiniciarConteoComentario();
+
+            msg += "\n";
+            msg += "El archivo " + Archivo.nombre + " tiene " + Archivo.obtenerNumBloquesComentario() + " ";
+            msg += "bloques de comentarioy un total de " + Archivo.obtenerNumLineasComentario() + " líneas ";
+            msg += "de cometario, incluyendo los comentarios de línea. Los bloques de comentario \n";
+            msg += "identifican el tipo de bloque que lo precede (Item o Parte), por lo tanto, este archivo ";
+            msg += "contiene " + Archivo.obtenerNumBloquesItem() + " métodos o items. \n";
+            msg += "El conteo total de lineas en blanco es de " + Archivo.obtenerNumLineasBlanco() + " para un ";
+            msg += "total de " + Archivo.obtenerNumLineasArchivo() + " Lineas de Código Físico (LOC). \n";
+            msg += "\n";
+
         }
+
+        msg += "El total de arcivos (Partes analizados): " + archivos.length;
+        System.out.println(msg);
 
         return archivos;
     }

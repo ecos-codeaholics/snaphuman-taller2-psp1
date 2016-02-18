@@ -14,7 +14,6 @@ public class Comentario {
     static Integer numLineas;
     static Integer numBloques;
     static Integer numBloquesItem;
-    static Integer numBloquesPart;
     static String tipo;
 
     /**
@@ -69,14 +68,11 @@ public class Comentario {
 
             tipo = linea.replaceAll(reemplazo, "").trim();
 
-            if (tipo.contains("Item")) {
+            if (tipo.contains( "Item" )) {
+                System.out.println("VALIDADO");
 
-                Archivo.bloquesItem.add( tipo );
+                Archivo.bloquesItem.add( "Item" );
                 numBloquesItem = Archivo.bloquesItem.size();
-            } else if (tipo.contains("Part")) {
-
-                Archivo.bloquesPart.add( tipo );
-                numBloquesPart = Archivo.bloquesPart.size();
             }
         }
 
