@@ -61,20 +61,17 @@ public class Comentario {
     public static String obtenerTipo ( String linea ) {
 
         String regex = "(\\p{Space}\\*\\p{Space}@\\btype\\b)(.*)$";
-        String reemplazo = "(\\p{Space}\\*\\p{Space}@\\btype\\b)";
+        String reemplazo = "(\\p{Space}\\*\\p{Space}@\\btype\\b)(\\p{Space}\\bItem\\b)";
         boolean tieneTipo = Pattern.matches( regex, linea );
 
         if ( tieneTipo ) {
 
             tipo = linea.replaceAll(reemplazo, "").trim();
+            Archivo.bloquesItem.add( tipo );
 
-            if (tipo.contains( "Item" )) {
-                System.out.println("VALIDADO");
-
-                Archivo.bloquesItem.add( "Item" );
-                numBloquesItem = Archivo.bloquesItem.size();
-            }
         }
+
+        numBloquesItem = Archivo.bloquesItem.size();
 
         return tipo;
     }

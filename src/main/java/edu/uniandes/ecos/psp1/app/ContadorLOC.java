@@ -96,7 +96,7 @@ public class ContadorLOC {
 
             msg += "\n";
             msg += "El archivo " + Archivo.nombre + " tiene " + Archivo.obtenerNumBloquesComentario() + " ";
-            msg += "bloques de comentarioy un total de " + Archivo.obtenerNumLineasComentario() + " líneas ";
+            msg += "bloques de comentario y un total de " + Archivo.obtenerNumLineasComentario() + " líneas ";
             msg += "de cometario, incluyendo los comentarios de línea. Los bloques de comentario \n";
             msg += "identifican el tipo de bloque que lo precede (Item o Parte), por lo tanto, este archivo ";
             msg += "contiene " + Archivo.obtenerNumBloquesItem() + " métodos o items. \n";
