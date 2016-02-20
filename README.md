@@ -1,6 +1,6 @@
-# TAller 2: Contador de LOC
+# Taller 2: Contador de LOC
 
-## Instrucciones
+## Instrucciones de implementación y uso
 
 * Descargar el progecto de github desde la consola
 
